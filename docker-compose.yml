@@ -1,0 +1,43 @@
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: graphqldb
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./just-do-db:/var/lib/postgresql/data
+
+  server-app:
+    build: JustDoServer/server/
+    image: just-do-server
+    depends_on:
+      - postgres
+      - redis
+    ports:
+    - "4000:4000"
+
+  post-server:
+    build: JustDoServer/post-server/
+    image: just-do-post-server
+    depends_on:
+      - redis
+    ports:
+    - "5000:5000"
+    
+  client:
+    build: JustDoClient/
+    image: just-do-client
+    depends_on:
+      - server-app
+    ports:
+      - "80:80"
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"

@@ -1,0 +1,165 @@
+h1 {
+  margin-top: 4rem;
+  color: #212020;
+  font-family: 'Comfortaa', Comfortaa-Bold-24px;
+  font-size: 24px;
+}
+
+#logo {
+  position: absolute;
+}
+
+#background_image {
+  height: 100%;
+  width: 100%;
+}
+
+#footer {
+  color: #BBBBC7;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+#registration_main, #forgot_password_main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-family: SFProDisplayRegular;
+}
+
+
+
+
+
+#registration_main__logo_images, #forgot_password_main__logo_images {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#registration_main__components {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 7rem;
+}
+
+#components_helper_text {
+  color: #BBBBC7;
+  size: 16px;
+  text-align:center;
+  font-family: SFProDisplayRegular;
+  padding-bottom: 3rem;
+}
+
+#forgot_password_main__components {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 15rem;;
+}
+
+#components__input_components {
+  width: 60%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#input_components__color_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5rem;
+}
+
+.MuiButton-containedPrimary {
+  color: #fff;
+  background-color: #56CCF2;
+  width: 257px;
+  height: 2.8rem;
+  border-radius: 26px;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #56CCF2;
+}
+
+.input_components__text_input {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.MuiFormControl-root {
+  width: 100%;
+}
+
+#input_components__footer__sign_in {
+  color: #BBBBC7;
+  padding-top: 2rem;
+}
+
+#input_components__footer__agreements {
+  color: #BBBBC7;
+  margin-top: 13rem;
+  align-items: center;
+}
+
+#agreements__links {
+  margin-right: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 16px;
+}
+
+.agreements__links__item {
+  flex: 1 0.1 auto;
+  margin: 0 5px;
+}
+
+#errorMessage {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+  color: red;
+}
+#password_input, #password_confirm_input, #email_input {
+  width: 100%;
+}
+
+#textInput__passwordForm, #textInput__passwordConfirmForm, #textInput__email {
+  width: 100%;
+}
+
+#item__terms_conditions, #item__privacy_policy, #sign_in__link {
+  font-family: SFProDisplayMedium;
+}
+
+#input_components__password_restore {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#arrow_link {
+  margin-right: auto;
+  margin-left: 4rem;
+  margin-bottom: 11rem;
+}

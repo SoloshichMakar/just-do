@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  just-do-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: just-do-email
+    ports:
+    - "5000:5000"
+   

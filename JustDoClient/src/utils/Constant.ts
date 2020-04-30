@@ -1,0 +1,14 @@
+export const TEXT_CHANGE = "textChange";
+export const TEXT_AUTHORIZATION_CHANGE = "textAuthorizationChange";
+export const TEXT_REGISTRATION_CHANGE = "textRegistrationChange";
+export const TEXT_PASSWORD_RESTORE_CHANGE = "textPasswordRestoreChange";
+export const TEXT_SEND_EMAIL_CHANGE = "textSendEmailChange";
+export const FORM_REGISTRATION_CLEAR = "formRegistrationClear";
+export const FORM_AUTHORIZATION_CLEAR = "formAuthorizationClear";
+export const CREATE_USER = "createUser";
+export const ERROR = "error";
+export const MESSAGE = 'message';
+export const SHOW_CONTENT = "showContent";
+export const CLEAR_MESSAGE = "clearMessage";
+export const AUTHENTICATE = "authenticate";
+export const ASYNC_CREATE_USER = "asyncCreateUser";
