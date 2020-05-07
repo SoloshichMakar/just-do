@@ -4,8 +4,8 @@ import {
   CREATE_USER,
   CLEAR_MESSAGE,
   TEXT_REGISTRATION_CHANGE,
-  FORM_AUTHORIZATION_CLEAR,
-  FORM_REGISTRATION_CLEAR, MESSAGE,
+  FORM_REGISTRATION_CLEAR,
+  MESSAGE,
 } from "../../utils/Constant";
 import { IActionRegistration } from "../../types/types";
 
@@ -75,8 +75,8 @@ export default function RegistrationReducer(
         isCreated: true,
       };
 
-    case MESSAGE :
-      if( action.message) {
+    case MESSAGE:
+      if (action.message) {
         return {
           ...state,
           message: action.message,

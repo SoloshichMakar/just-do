@@ -39,10 +39,6 @@ client_redis.on('message', function(channel, key) {
     }
 });
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
-
 app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), () => {
     console.log(`Server is listening to port ${app.get('port')}`);

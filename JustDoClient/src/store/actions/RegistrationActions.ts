@@ -5,7 +5,10 @@ import {
   CLEAR_MESSAGE,
   ERROR,
   CREATE_USER,
-  AUTHENTICATE, FORM_AUTHORIZATION_CLEAR, FORM_REGISTRATION_CLEAR, MESSAGE
+  AUTHENTICATE,
+  FORM_AUTHORIZATION_CLEAR,
+  FORM_REGISTRATION_CLEAR,
+  MESSAGE,
 } from "../../utils/Constant";
 
 export function actionTextEmailChange(email: string) {
@@ -29,8 +32,6 @@ export function actionTextConfirmPasswordChange(confirmPassword: string) {
   };
 }
 
-
-
 export function actionShowPassword(showPassword: boolean) {
   return {
     type: SHOW_CONTENT,
@@ -48,30 +49,30 @@ export function actionShowConfirmPassword(showConfirmPassword: boolean) {
 export function actionClearMessage() {
   return {
     type: CLEAR_MESSAGE,
-  }
+  };
 }
 
 export function actionErrorMessage() {
   return {
     type: ERROR,
-  }
+  };
 }
 
 export function actionCreateUserMessage() {
   return {
     type: CREATE_USER,
-  }
+  };
 }
 export function actionAuthenticated() {
   return {
     type: AUTHENTICATE,
-  }
+  };
 }
 
 export function actionFormClear() {
   return {
     type: FORM_REGISTRATION_CLEAR,
-  }
+  };
 }
 
 export function actionSetMessage(message: string) {
@@ -80,9 +81,3 @@ export function actionSetMessage(message: string) {
     message,
   };
 }
-
-
-
-
-
-

@@ -2,10 +2,7 @@ import React from "react";
 import { gql } from "apollo-boost";
 import { useMutation } from "@apollo/react-hooks";
 import "../style/style.scss";
-import {
-  IconButton,
-  Snackbar,
-} from "@material-ui/core";
+import { IconButton, Snackbar } from "@material-ui/core";
 import JustDoComponent from "../../picture/JustDoComponent.png";
 import JustDoLogo from "../../picture/JustDoLogo.png";
 import {
@@ -22,9 +19,8 @@ import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import { Alert } from "@material-ui/lab";
-import {NavLink, useHistory} from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { ColorButton, CustomLink } from "../style/CustomElements";
-
 
 interface IRegistrationProps {
   email: string;
@@ -256,24 +252,30 @@ const Registration: React.FC<IRegistrationProps> = ({
         </div>
         <div id="input_components__footer__sign_in">
           I already have an account.
-          <NavLink to="/login"><CustomLink onClick={() => redirectToSighIn()}>Sign In</CustomLink></NavLink>
+          <NavLink to="/login">
+            <CustomLink onClick={() => redirectToSighIn()}>Sign In</CustomLink>
+          </NavLink>
         </div>
         <div id="input_components__footer__agreements">
           <div>By accessing your account, you agree to our</div>
           <div id="agreements__links">
-            <NavLink to="/#"><CustomLink
-              id="item__terms_conditions"
-              className="agreements__links__item"
-            >
-              Terms conditions
-            </CustomLink></NavLink>
+            <NavLink to="/#">
+              <CustomLink
+                id="item__terms_conditions"
+                className="agreements__links__item"
+              >
+                Terms conditions
+              </CustomLink>
+            </NavLink>
             <div className="agreements__links__item"> and </div>
-            <NavLink to="/#"><CustomLink
-              id="item__privacy_policy"
-              className="agreements__links__item"
-            >
-              Privacy Policy
-            </CustomLink></NavLink>
+            <NavLink to="/#">
+              <CustomLink
+                id="item__privacy_policy"
+                className="agreements__links__item"
+              >
+                Privacy Policy
+              </CustomLink>
+            </NavLink>
           </div>
         </div>
       </div>

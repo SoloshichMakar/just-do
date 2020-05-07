@@ -1,7 +1,7 @@
 const upperCaseLetters = /[A-Z][A-Z]/g;
 const numbers = /[0-9]/g;
 const specialChar = /[!@#$&*]/g;
-const whitespaceChar =  /[\s]/g
+const whitespaceChar = /[\s]/g;
 
 export function validateEmail(EmailIsEdit: boolean, email: string) {
   if (EmailIsEdit) {
@@ -44,7 +44,7 @@ export function passwordHelperMessage(
       return "The password must contain numbers";
     } else if (!password.match(specialChar)) {
       return "The password must contain special char (!@#$&*)";
-    }else if (password.match(whitespaceChar)) {
+    } else if (password.match(whitespaceChar)) {
       return "The password should not contain whitespaces";
     }
   }

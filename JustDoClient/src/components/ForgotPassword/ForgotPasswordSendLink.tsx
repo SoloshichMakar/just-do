@@ -58,7 +58,9 @@ const ForgotPassword: React.FC<IForgotPassword> = ({
           variables: { email: email },
         });
         emailIsEdit = false;
-        setMessage("Instruction to restore your password is sent to your email: " + email);
+        setMessage(
+          "Instruction to restore your password is sent to your email: " + email
+        );
         textEmailChange("");
         history.push("/");
       }

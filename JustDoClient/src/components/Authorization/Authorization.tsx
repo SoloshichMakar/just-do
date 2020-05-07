@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Link, Snackbar, Theme, withStyles } from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
 import JustDoLogo from "../../picture/JustDoLogo.png";
 import JustDoComponent from "../../picture/JustDoComponent.png";
 import FormControl from "@material-ui/core/FormControl";
@@ -127,7 +127,11 @@ const Authorization: React.FC<IAuthorization> = ({
           {message}
         </Alert>
       </Snackbar>
-      <Snackbar open={isCreated || success} autoHideDuration={10000} onClose={handleClose}>
+      <Snackbar
+        open={isCreated || success}
+        autoHideDuration={10000}
+        onClose={handleClose}
+      >
         <Alert onClose={handleClose} severity="success">
           {message}
         </Alert>

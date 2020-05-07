@@ -11,5 +11,8 @@
   },
   "scripts": {
     "start": "node app.ts"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
   }
 }

@@ -1,6 +1,5 @@
 export function restoreMessage(restoreLink) {
-
-    return `<html>
+  return `<html>
   <header></header>
   <body
     style="
@@ -44,5 +43,5 @@ export function restoreMessage(restoreLink) {
       </a>
     </div>
   </body>
-</html>`
+</html>`;
 }

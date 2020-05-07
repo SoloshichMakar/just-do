@@ -43,20 +43,20 @@ function mapDispatchToProps(dispatch: Function) {
       dispatch(actionShowConfirmPassword(showConfirmPassword));
     },
     errorMessage() {
-      dispatch(actionErrorMessage())
+      dispatch(actionErrorMessage());
     },
     clearMessage() {
-      dispatch(actionClearMessage())
+      dispatch(actionClearMessage());
     },
     createUserMessage() {
-      dispatch(actionCreateUserMessage())
+      dispatch(actionCreateUserMessage());
     },
     formClear() {
-      dispatch(actionFormClear())
+      dispatch(actionFormClear());
     },
     setMessage(message: string) {
-      dispatch(actionSetMessage(message))
-    }
+      dispatch(actionSetMessage(message));
+    },
   };
 }
 
