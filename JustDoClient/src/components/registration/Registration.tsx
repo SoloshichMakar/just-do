@@ -19,8 +19,9 @@ import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import FormControl from "@material-ui/core/FormControl";
 import { Alert } from "@material-ui/lab";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { ColorButton, CustomLink } from "../style/CustomElements";
+import { ADD_USER } from "../../graphQL/shemas";
 
 interface IRegistrationProps {
   email: string;
@@ -40,15 +41,6 @@ interface IRegistrationProps {
   showPasswordValue: Function;
   showConfirmPasswordValue: Function;
 }
-
-const ADD_USER = gql`
-  mutation AddUser($email: String!, $password: String!) {
-    addUser(email: $email, password: $password) {
-      id
-      email
-    }
-  }
-`;
 
 let emailIsEdit = false;
 let passwordIsEdit = false;
@@ -191,6 +183,7 @@ const Registration: React.FC<IRegistrationProps> = ({
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
+                      id="passwordVisibility"
                       aria-label="toggle password visibility"
                       onClick={handleClickShowPassword}
                     >
@@ -221,6 +214,7 @@ const Registration: React.FC<IRegistrationProps> = ({
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton
+                      id="confirmPasswordVisibility"
                       aria-label="toggle password visibility"
                       onClick={handleClickShowConfirmPassword}
                     >
@@ -252,30 +246,28 @@ const Registration: React.FC<IRegistrationProps> = ({
         </div>
         <div id="input_components__footer__sign_in">
           I already have an account.
-          <NavLink to="/login">
-            <CustomLink onClick={() => redirectToSighIn()}>Sign In</CustomLink>
-          </NavLink>
+          <CustomLink href="/login" onClick={() => redirectToSighIn()}>
+            Sign In
+          </CustomLink>
         </div>
         <div id="input_components__footer__agreements">
           <div>By accessing your account, you agree to our</div>
           <div id="agreements__links">
-            <NavLink to="/#">
-              <CustomLink
-                id="item__terms_conditions"
-                className="agreements__links__item"
-              >
-                Terms conditions
-              </CustomLink>
-            </NavLink>
+            <CustomLink
+              href="/#"
+              id="item__terms_conditions"
+              className="agreements__links__item"
+            >
+              Terms conditions
+            </CustomLink>
             <div className="agreements__links__item"> and </div>
-            <NavLink to="/#">
-              <CustomLink
-                id="item__privacy_policy"
-                className="agreements__links__item"
-              >
-                Privacy Policy
-              </CustomLink>
-            </NavLink>
+            <CustomLink
+              href="/#"
+              id="item__privacy_policy"
+              className="agreements__links__item"
+            >
+              Privacy Policy
+            </CustomLink>
           </div>
         </div>
       </div>

@@ -10,18 +10,18 @@ import {
   validateEmail,
   validatePassword,
 } from "../../utils/validateUserDataFunction";
-import { NavLink, useHistory } from "react-router-dom";
-import { gql } from "apollo-boost";
+import { useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/react-hooks";
 import { Alert } from "@material-ui/lab";
 import { ColorButton, CustomLink } from "../style/CustomElements";
+import { USER_LOGIN } from "../../graphQL/shemas";
 
 interface IAuthorization {
   email: string;
   password: string;
   message: string;
   isCreated: boolean;
-  success: false;
+  success: boolean;
   formClear: Function;
   authenticated: Function;
   errorMessage: Function;
@@ -32,18 +32,6 @@ interface IAuthorization {
 
 let emailIsEdit = false;
 let passwordIsEdit = false;
-
-const USER_LOGIN = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      user {
-        id
-        email
-      }
-      token
-    }
-  }
-`;
 
 const Authorization: React.FC<IAuthorization> = ({
   email,
@@ -115,7 +103,6 @@ const Authorization: React.FC<IAuthorization> = ({
     clearMessage();
   };
 
-  console.log(success);
   return (
     <div id="registration_main">
       <Snackbar
@@ -178,11 +165,9 @@ const Authorization: React.FC<IAuthorization> = ({
 
         <div id="input_components__color_button">
           <div id="input_components__password_restore">
-            <NavLink to="/password_restore">
-              <CustomLink href="#" id="forgot_password">
+              <CustomLink href="/password_restore" id="forgot_password">
                 Forgot password?
               </CustomLink>
-            </NavLink>
           </div>
 
           <ColorButton
@@ -195,37 +180,32 @@ const Authorization: React.FC<IAuthorization> = ({
           </ColorButton>
         </div>
         <div id="input_components__footer__sign_in">
-          <NavLink to="/registration">
-            <CustomLink
-              href="/registration"
-              id="sign_in__link"
-              onClick={() => redirectToSighUp()}
-            >
-              Sign Up
-            </CustomLink>
-          </NavLink>
+          <CustomLink
+            href="/registration"
+            id="sign_in__link"
+            onClick={() => redirectToSighUp()}
+          >
+            Sign Up
+          </CustomLink>
         </div>
         <div id="input_components__footer__agreements">
           <div>By accessing your account, you agree to our</div>
           <div id="agreements__links">
-            <NavLink to="/#">
-              <CustomLink
-                id="item__terms_conditions"
-                className="agreements__links__item"
-                href="#"
-              >
-                Terms conditions
-              </CustomLink>
-            </NavLink>
+            <CustomLink
+              href="/#"
+              id="item__terms_conditions"
+              className="agreements__links__item"
+            >
+              Terms conditions
+            </CustomLink>
             <div className="agreements__links__item"> and </div>
-            <NavLink to="/#">
-              <CustomLink
-                id="item__privacy_policy"
-                className="agreements__links__item"
-              >
-                Privacy Policy
-              </CustomLink>
-            </NavLink>
+            <CustomLink
+              href="/#"
+              id="item__privacy_policy"
+              className="agreements__links__item"
+            >
+              Privacy Policy
+            </CustomLink>
           </div>
         </div>
       </div>

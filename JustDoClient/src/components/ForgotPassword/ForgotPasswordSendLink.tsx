@@ -7,13 +7,13 @@ import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
 import { Link, useHistory } from "react-router-dom";
 import { ColorButton } from "../style/CustomElements";
-import { gql } from "apollo-boost";
 import {
   emailHelperMessage,
   validateEmail,
 } from "../../utils/validateUserDataFunction";
 import { useMutation } from "@apollo/react-hooks";
 import { Alert } from "@material-ui/lab";
+import { SEND_INSTRUCTIONS } from "../../graphQL/shemas"
 
 interface IForgotPassword {
   email: string;
@@ -24,13 +24,6 @@ interface IForgotPassword {
   textEmailChange: Function;
 }
 
-const SEND_INSTRUCTIONS = gql`
-  mutation SendEmailPasswordRestore($email: String!) {
-    sendEmailPasswordRestore(email: $email) {
-      message
-    }
-  }
-`;
 
 let emailIsEdit = false;
 

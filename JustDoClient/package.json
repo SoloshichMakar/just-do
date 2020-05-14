@@ -37,6 +37,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/{!(serviceWorker),}.ts",
+      "src/**/{!(serviceWorker),}.tsx"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -63,6 +69,7 @@
     "fetch-mock": "^9.4.0",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^3.0.3",
+    "mock-apollo-client": "^0.3.0",
     "prettier": "2.0.4",
     "react-router-dom": "^5.1.2",
     "react-test-renderer": "^16.13.1"

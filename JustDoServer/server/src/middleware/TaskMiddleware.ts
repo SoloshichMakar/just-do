@@ -9,7 +9,6 @@ function completeValid(completed) {
 module.exports = {
   taskCreateValidation(args) {
     const { name, description, userId } = args;
-
     if (
       taskElementValid(name) &&
       taskElementValid(description) &&
@@ -18,6 +17,7 @@ module.exports = {
     } else {
       throw new Error("Invalid task");
     }
+    return true;
   },
 
   taskUpdateValidation(args) {
@@ -32,5 +32,6 @@ module.exports = {
     } else {
       throw new Error("Invalid task");
     }
+    return true;
   },
 };

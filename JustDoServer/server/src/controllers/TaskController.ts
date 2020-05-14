@@ -9,7 +9,7 @@ interface IParams {
   due_date: string;
   priority: string;
   notification_date: string;
-  user_id: number;
+  userId: number;
   completed: boolean;
 }
 
@@ -21,7 +21,7 @@ module.exports = {
       due_date,
       priority,
       notification_date,
-      user_id,
+      userId,
     } = data;
 
     const token = context.req.req.headers.token;
@@ -33,7 +33,7 @@ module.exports = {
         due_date,
         priority,
         notification_date,
-        user_id,
+          userId,
         false
       );
       return await getRepository(Task).save(task);
@@ -47,7 +47,7 @@ module.exports = {
     const decoded = jwt.verify(token, "secret");
     try {
       const task = await getRepository(Task).findOne(data.id);
-      if (decoded.id === task.user_id) {
+      if (decoded.id === task.userId) {
         for (let updateTaskParameter in data) {
           const updateValue = data[updateTaskParameter];
           if (
@@ -80,23 +80,22 @@ module.exports = {
     const token = context.req.req.headers.token;
     const decoded = jwt.verify(token, "secret");
     try {
-      const user = await getRepository(Task).findOne(id);
-      return user;
+      const task = await getRepository(Task).findOne(id);
+      return task;
     } catch (e) {
       return Error(e);
     }
   },
 
-  async getTaskByUserId(user_id, context) {
+  async getTaskByUserId(userId, context) {
     const token = context.req.req.headers.token;
     const decoded = jwt.verify(token, "secret");
-
     try {
-      if (decoded.id === user_id) {
-        const user = await getRepository(Task).find({
-          where: { user_id: user_id },
+      if (decoded.id === userId) {
+        const task = await getRepository(Task).find({
+          where: { userId: userId },
         });
-        return user;
+        return task;
       } else {
         return Error("Permission denied");
       }
@@ -110,7 +109,7 @@ module.exports = {
     const decoded = jwt.verify(token, "secret");
     try {
       const deleteTask = await getRepository(Task).findOne(id);
-      if (decoded.id === deleteTask.user_id) {
+      if (decoded.id === deleteTask.userId) {
         await getRepository(Task).delete(id);
         return deleteTask;
       } else {

@@ -12,10 +12,10 @@ import {
   validateConfirmPassword,
   validatePassword,
 } from "../../utils/validateUserDataFunction";
-import { gql } from "apollo-boost";
 import { useMutation } from "@apollo/react-hooks";
 import { Alert } from "@material-ui/lab";
 import { ColorButton } from "../style/CustomElements";
+import { PASSWORD_RESTORE } from "../../graphQL/shemas";
 
 interface IForgotPasswordRestore {
   password: string;
@@ -28,15 +28,6 @@ interface IForgotPasswordRestore {
   textPasswordChange: Function;
   textConfirmPasswordChange: Function;
 }
-
-const PASSWORD_RESTORE = gql`
-  mutation PasswordRestore($id: ID!, $password: String!, $token: String!) {
-    passwordRestore(id: $id, password: $password, token: $token) {
-      id
-      email
-    }
-  }
-`;
 
 let passwordIsEdit = false;
 let confirmPasswordIsEdit = false;
@@ -81,7 +72,7 @@ const PasswordRestore: React.FC<IForgotPasswordRestore> = ({
         ) &&
         confirmPasswordIsEdit
       ) {
-        await passwordRestore({
+        const response = await passwordRestore({
           variables: {
             id: parseInt(match.params.id),
             password: password,

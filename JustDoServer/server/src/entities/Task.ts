@@ -3,7 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   BaseEntity,
-  ManyToOne,
+  ManyToOne, JoinColumn,
 } from "typeorm";
 import { User } from "./User";
 
@@ -27,8 +27,12 @@ export class Task extends BaseEntity {
   @Column()
   notification_date: string;
 
-  @ManyToOne((type) => User, (user) => user.id)
-  user_id: number;
+  @ManyToOne(type => User, user => user.id)
+  @JoinColumn({name: 'userId'})
+  user: User;
+
+  @Column({ nullable: false })
+  userId: number;
 
   @Column()
   completed: boolean;
@@ -39,7 +43,7 @@ export class Task extends BaseEntity {
     due_date: string,
     priority: string,
     notification_date: string,
-    user_id: number,
+    userId: number,
     completed: boolean
   ) {
     super();
@@ -48,7 +52,7 @@ export class Task extends BaseEntity {
     this.due_date = due_date;
     this.priority = priority;
     this.notification_date = notification_date;
-    this.user_id = user_id;
+    this.userId = userId;
     this.completed = completed;
   }
 }

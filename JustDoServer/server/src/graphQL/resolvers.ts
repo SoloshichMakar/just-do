@@ -1,20 +1,14 @@
-export const UserController = require("../controllers/UserController");
-export const TaskController = require("../controllers/TaskController");
+const UserController = require("../controllers/UserController");
+const TaskController = require("../controllers/TaskController");
 
 export const resolvers = {
   Query: {
-    users: () => UserController.getAllUsers(),
-    user: (parent, { id }) => UserController.getUserById(id),
-
     tasks: () => TaskController.getAllTask(),
     task: (parent, { id }, context) => TaskController.getTaskById(id, context),
-    getTaskByUserId: (parent, { user_id }, context) =>
-      TaskController.getTaskByUserId(user_id, context),
+    getTaskByUserId: (parent, { userId: userId }, context) =>
+      TaskController.getTaskByUserId(parseInt(userId), context),
   },
   Mutation: {
-    deleteUser: (parent, { id }) => UserController.deleteUser(id),
-    updateUser: (parent, { id, email, password }) =>
-      UserController.updateUser(id, password, email),
     addUser: (parent, { email, password }) =>
       UserController.createUser(email, password),
     passwordRestore: (parent, { id, password, token }) =>

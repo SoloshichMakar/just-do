@@ -11,7 +11,6 @@ import { Task } from "./Task";
 @Entity()
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
-  @OneToMany((type) => Task, (task) => task.user_id)
   id: number;
 
   @Column()
@@ -23,9 +22,13 @@ export class User extends BaseEntity {
   @CreateDateColumn({ type: "timestamp" })
   createdAt: Date;
 
+  @OneToMany(type => Task, task => task.id)
+  tasks: Task[];
+
   constructor(email: string, password: string) {
     super();
     this.email = email;
     this.password = password;
   }
+
 }

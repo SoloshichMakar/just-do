@@ -39,5 +39,6 @@ module.exports = {
     } else {
       throw new Error("Invalid query");
     }
+    return true;
   },
 };

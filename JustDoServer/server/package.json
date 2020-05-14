@@ -6,13 +6,39 @@
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "@types/node": "^13.11.1",
+    "graphql-request": "^1.8.2",
     "jest": "^25.4.0",
     "nodemon": "^2.0.3",
+    "redis-mock": "^0.49.0",
+    "start-server-and-test": "^1.11.0",
     "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "start": "ts-node ./src/index.ts"
+    "start": "NODE_ENV=development ts-node ./src/index.ts",
+    "test-server": "NODE_ENV=test ts-node ./src/index.ts",
+    "test": "NODE_ENV=test jest --runInBand",
+    "ci": "start-server-and-test test-server http://localhost:4000/ test"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "collectCoverageFrom": [
+      "src/**/{!(index.ts),}.ts"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/src/graphQL/"
+    ]
   },
   "dependencies": {
     "apollo-server": "^2.12.0",
@@ -26,6 +52,7 @@
     "prettier": "^2.0.5",
     "redis": "^3.0.2",
     "reflect-metadata": "^0.1.13",
+    "ts-jest": "^25.5.0",
     "typeorm": "^0.2.24"
   }
 }

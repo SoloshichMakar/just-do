@@ -1,9 +1,8 @@
 const express = require('express');
-const app = express();
 const redis = require('redis');
 const nodemailer = require("nodemailer");
 
-
+const app = express();
 const client_redis = redis.createClient(6379,'redis');
 let readClient = redis.createClient(6379,'redis');
 
